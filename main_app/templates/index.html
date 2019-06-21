@@ -1,0 +1,34 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <title>WishList Items</title>
+</head>
+<body>
+    <h1>WishList Items</h1>
+    {% if item_list|length == 0 %}
+    <h3>No Wishes made yet</h3>
+    {% else %}
+    <table>
+        <thead>
+            <th>Description</th>
+            <th>Detele</th>
+        </thead>
+        <tbody>
+            {% for item in item_list %}
+            <td>{item.description}</td>
+            <td>X</td>
+        </tbody>    
+        {% endfor %}
+    </table>
+    {% endif %}
+    <hr>
+    <form method="get">
+        <a class="pure-button" href="{% url 'item_create' %}">Make a Wish</a>
+    </form>
+</body>
+</html>
